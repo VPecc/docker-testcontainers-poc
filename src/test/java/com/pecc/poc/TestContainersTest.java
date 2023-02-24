@@ -12,6 +12,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.util.List;
 
 import static java.lang.String.format;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 @Testcontainers
 public class TestContainersTest {
@@ -37,12 +38,11 @@ public class TestContainersTest {
         List<String> result = extension
                 .getJdbi()
                 .withHandle(handle ->
-                        handle.createQuery("SELECT datname FROM pg_database")
+                        handle.createQuery("SELECT datname FROM pg_database order by 1")
                                 .mapTo(String.class)
                                 .list());
 
-
-        result.forEach(System.out::println);
+        assertIterableEquals(List.of("postgres", "template0", "template1", "test"), result);
     }
 
 

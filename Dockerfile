@@ -12,6 +12,3 @@ COPY ./build.gradle /app/build.gradle
 COPY ./settings.gradle /app/settings.gradle
 
 RUN sh gradlew compileJava compileTestJava
-
-# docker build -f Dockerfile -t jvm-dood .
-# docker run -e TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal -v /var/run/docker.sock:/var/run/docker.sock jvm-dood sh /app/gradlew test --info

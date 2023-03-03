@@ -12,3 +12,4 @@ COPY ./build.gradle /app/build.gradle
 COPY ./settings.gradle /app/settings.gradle
 
 RUN sh gradlew compileJava compileTestJava
+ENTRYPOINT sh /app/gradlew test --info

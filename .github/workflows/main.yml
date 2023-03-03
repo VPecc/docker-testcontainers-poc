@@ -15,7 +15,4 @@ jobs:
           docker build --tag docker-testcontainers-poc:latest . && 
           docker run 
           -v /var/run/docker.sock:/var/run/docker.sock 
-          docker-testcontainers-poc 
-          sh /app/gradlew test --info
-
-
+          docker-testcontainers-poc
